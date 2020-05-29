@@ -11,11 +11,9 @@ class Todolist:
        
         self.label_task_name = Label(self.task_adding_frame, text="task name:")
         self.input_task_name_entry = Entry(self.task_adding_frame)
-
     
         self.add_task_button = Button(self.task_adding_frame, text="add task", command=self.put_task_to_box)
         
-
         self.label_task_name.grid(row=0, column=0)
         self.input_task_name_entry.grid(row=1, column=0)
 
@@ -31,9 +29,12 @@ class Todolist:
         self.delete_task_button.pack()
 
     def put_task_to_box(self):
-        self.tasks_box.insert(END, self.input_task_name_entry.get())
-        print("add: ", self.input_task_name_entry.get())
-        self.clear_task_name_entry()
+        if self.input_task_name_entry.get() != "":
+            self.tasks_box.insert(END, self.input_task_name_entry.get())
+            print("add: ", self.input_task_name_entry.get())
+            self.clear_task_name_entry()
+        else:
+            pass
 
     def remove_task_from_box(self):
         self.tasks_box.delete(ANCHOR)
