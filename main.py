@@ -25,11 +25,11 @@ class Todolist:
         self.deadline_date_label.grid(row=2, column=0)
         self.deadline_date_input.grid(row=3, column=0)
 
-        self.add_task_button.grid(row=4, column=0, pady=10)
+        self.add_task_button.grid(row=4, column=0)
 
 
         self.tasks_list_frame = LabelFrame(self.master, text="tasks list")
-        self.tasks_list_frame.pack(padx=30, pady=40)
+        self.tasks_list_frame.pack()
 
 
 root = Tk()
