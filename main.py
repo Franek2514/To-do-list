@@ -1,9 +1,7 @@
 from tkinter import *
 
 class Todolist:
-    def put_task_to_box(self):
-        self.tasks_box.insert(END, self.input_task_name_entry.get())
-        print("add: ", self.input_task_name_entry.get())
+    
 
     def __init__(self, master, window_title, **options):
         self.master = master
@@ -33,6 +31,10 @@ class Todolist:
 
         self.tasks_box = Listbox(self.tasks_list_frame)
         self.tasks_box.pack()    
+
+    def put_task_to_box(self):
+        self.tasks_box.insert(END, self.input_task_name_entry.get())
+        print("add: ", self.input_task_name_entry.get())
 
 root = Tk()
 
