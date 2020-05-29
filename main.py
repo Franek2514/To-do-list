@@ -1,11 +1,13 @@
 from tkinter import *
 
 class Todolist:
+    def put_task_to_box(self):
+        self.tasks_box.insert(END, self.input_task_name_entry.get())
+        print("add: ", self.input_task_name_entry.get())
+
     def __init__(self, master, window_title, **options):
         self.master = master
         self.master.title(str(window_title))
-        
-
 
         self.task_adding_frame = LabelFrame(self.master, text="add task")
         self.task_adding_frame.pack()
@@ -15,9 +17,8 @@ class Todolist:
 
         self.deadline_date_label = Label(self.task_adding_frame, text="deadline date:")
         self.deadline_date_input = Entry(self.task_adding_frame)
-
-        self.add_task_button = Button(self.task_adding_frame, text="add task")
-
+    
+        self.add_task_button = Button(self.task_adding_frame, text="add task", command=self.put_task_to_box)
 
         self.label_task_name.grid(row=0, column=0)
         self.input_task_name_entry.grid(row=1, column=0)
@@ -27,10 +28,11 @@ class Todolist:
 
         self.add_task_button.grid(row=4, column=0)
 
-
         self.tasks_list_frame = LabelFrame(self.master, text="tasks list")
         self.tasks_list_frame.pack()
 
+        self.tasks_box = Listbox(self.tasks_list_frame)
+        self.tasks_box.pack()    
 
 root = Tk()
 
